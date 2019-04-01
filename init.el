@@ -87,6 +87,13 @@
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
+(defun my-elpy-mode-hook ()
+  "Personal elpy hook logic"
+  (interactive)
+  (set-fill-column 120))
+(add-hook 'elpy-mode-hook 'my-elpy-mode-hook)
+
+
 ;; ;; autopep8 on save
 ;; (require 'py-autopep8)
 ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
@@ -102,6 +109,14 @@
 ;; Whitespace-mode
 (require 'whitespace)
 (global-set-key (kbd "C-x w") 'whitespace-mode)
+
+(require 'flycheck)
+(defun my-flycheck-mode-hook ()
+  "Personal flycheck-mode hook logic"
+  (interactive)
+  (local-set-key (kbd "C-c <C-left>") 'flycheck-previous-error)
+  (local-set-key (kbd "C-c <C-right>") 'flycheck-next-error))
+(add-hook 'flycheck-mode-hook 'my-flycheck-mode-hook)
 
 ;; ;; Editorconfig
 ;; (require 'editorconfig)
