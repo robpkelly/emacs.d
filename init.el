@@ -77,6 +77,7 @@
 ;; {{{
 
 ;;; Python configuration
+(require 'elpy)
 (elpy-enable)
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --simple-prompt")
@@ -86,9 +87,9 @@
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-;; autopep8 on save
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+;; ;; autopep8 on save
+;; (require 'py-autopep8)
+;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 ;; }}}
 
 ;;; minor mode config
@@ -102,9 +103,9 @@
 (require 'whitespace)
 (global-set-key (kbd "C-x w") 'whitespace-mode)
 
-;; Editorconfig
-(require 'editorconfig)
-(editorconfig-mode 1)
+;; ;; Editorconfig
+;; (require 'editorconfig)
+;; (editorconfig-mode 1)
 
 ;; Company-quickhelp
 (require 'company-quickhelp)
