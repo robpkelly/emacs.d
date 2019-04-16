@@ -118,9 +118,9 @@
   (local-set-key (kbd "C-c <C-right>") 'flycheck-next-error))
 (add-hook 'flycheck-mode-hook 'my-flycheck-mode-hook)
 
-;; ;; Editorconfig
-;; (require 'editorconfig)
-;; (editorconfig-mode 1)
+;; Editorconfig
+(require 'editorconfig)
+(editorconfig-mode 1)
 
 ;; Company-quickhelp
 (require 'company-quickhelp)
