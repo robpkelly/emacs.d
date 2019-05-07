@@ -22,7 +22,7 @@
  '(large-file-warning-threshold nil)
     '(package-selected-packages
          (quote
-             (color-theme-modern highlight-symbol markdown-mode lua-mode slime yaml-mode editorconfig form-feed autopair elpy company-quickhelp flycheck py-autopep8 magit)))
+             (idle-highlight-in-visible-buffers-mode color-theme-modern markdown-mode lua-mode slime yaml-mode editorconfig form-feed autopair elpy company-quickhelp flycheck py-autopep8 magit)))
  '(tab-width 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -36,17 +36,17 @@
 ;; {{{
 (require 'package)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-			             ("melpa" . "https://melpa.org/packages/")
-			             ("org" . "http://orgmode.org/elpa/")))
+			                ("melpa" . "https://melpa.org/packages/")
+			                ("org" . "http://orgmode.org/elpa/")))
 
 (package-initialize)
 (when (not package-archive-contents)
-  (package-refresh-contents))
+    (package-refresh-contents))
 
 (mapc #'(lambda (package)
-	      (unless (package-installed-p package)
-	        (package-install package)))
-      package-selected-packages)
+	        (unless (package-installed-p package)
+	            (package-install package)))
+    package-selected-packages)
 ;; }}}
 
 ;;; Load external modules
@@ -77,17 +77,17 @@
 (require 'elpy)
 (elpy-enable)
 (setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "-i --simple-prompt")
+    python-shell-interpreter-args "-i --simple-prompt")
 
 ;; use Flycheck
 (when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+    (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 (defun my-elpy-mode-hook ()
-  "Personal elpy hook logic"
-  (interactive)
-  (set-fill-column 120))
+    "Personal elpy hook logic"
+    (interactive)
+    (set-fill-column 120))
 (add-hook 'elpy-mode-hook 'my-elpy-mode-hook)
 
 ;; ;; autopep8 on save
@@ -108,10 +108,10 @@
 
 (require 'flycheck)
 (defun my-flycheck-mode-hook ()
-  "Personal flycheck-mode hook logic"
-  (interactive)
-  (local-set-key (kbd "C-c <C-left>") 'flycheck-previous-error)
-  (local-set-key (kbd "C-c <C-right>") 'flycheck-next-error))
+    "Personal flycheck-mode hook logic"
+    (interactive)
+    (local-set-key (kbd "C-c <C-left>") 'flycheck-previous-error)
+    (local-set-key (kbd "C-c <C-right>") 'flycheck-next-error))
 (add-hook 'flycheck-mode-hook 'my-flycheck-mode-hook)
 
 ;; Editorconfig
