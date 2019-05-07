@@ -65,6 +65,7 @@
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-x <C-left>") 'previous-multiframe-window)
 (global-set-key (kbd "C-x <C-right>") 'next-multiframe-window)
+(global-set-key (kbd "C-n") 'isearch-forward-symbol-at-point)
 
 (require 'clone-line)
 (global-set-key (kbd "M-:") (lambda () (interactive) (clone-line t)))
@@ -87,7 +88,8 @@
 (defun my-elpy-mode-hook ()
     "Personal elpy hook logic"
     (interactive)
-    (set-fill-column 120))
+    (set-fill-column 120)
+    (idle-highlight-in-visible-buffers-mode))
 (add-hook 'elpy-mode-hook 'my-elpy-mode-hook)
 
 ;; ;; autopep8 on save

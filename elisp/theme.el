@@ -13,6 +13,7 @@
     '(border ((t (:foreground "black"))))
     '(bold ((t (:bold t :foreground "Wheat"))))
     '(bold-italic ((t (:italic t :bold t :foreground "wheat"))))
+    '(idle-highlight-in-visible-buffers ((t (:foreground "color-29" :underline t))))
     '(calendar-today-face ((t (:underline t :foreground "white"))))
     '(diary-face ((t (:foreground "red"))))
     '(font-lock-builtin-face ((t (:bold t :foreground "cyan"))))
