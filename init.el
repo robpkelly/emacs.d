@@ -9,20 +9,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(browse-url-browser-function 'browse-url-generic)
+ '(browse-url-browser-function (quote browse-url-generic))
  '(browse-url-generic-program "firefox")
  '(c-basic-offset 4)
  '(c-default-style "linux")
  '(column-number-mode t)
  '(default-fill-column 80)
- '(frame-background-mode 'dark)
+ '(frame-background-mode (quote dark))
  '(global-linum-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(large-file-warning-threshold nil)
- '(package-selected-packages
-   (quote
-    (lua-mode slime yaml-mode editorconfig form-feed autopair color-theme elpy company-quickhelp flycheck py-autopep8 magit)))
+    '(package-selected-packages
+         (quote
+             (color-theme-modern highlight-symbol markdown-mode lua-mode slime yaml-mode editorconfig form-feed autopair elpy company-quickhelp flycheck py-autopep8 magit)))
  '(tab-width 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -66,9 +66,6 @@
 (global-set-key (kbd "C-x <C-left>") 'previous-multiframe-window)
 (global-set-key (kbd "C-x <C-right>") 'next-multiframe-window)
 
-(require 'color-theme)
-(color-theme-initialize)
-
 (require 'clone-line)
 (global-set-key (kbd "M-:") (lambda () (interactive) (clone-line t)))
 ;; }}}
@@ -92,7 +89,6 @@
   (interactive)
   (set-fill-column 120))
 (add-hook 'elpy-mode-hook 'my-elpy-mode-hook)
-
 
 ;; ;; autopep8 on save
 ;; (require 'py-autopep8)
@@ -127,3 +123,4 @@
 (company-quickhelp-mode)
 
 ;; }}}
+(put 'downcase-region 'disabled nil)
