@@ -90,7 +90,9 @@
     "Personal elpy hook logic"
     (interactive)
     (set-fill-column 120)
-    (idle-highlight-in-visible-buffers-mode))
+    ;; (idle-highlight-in-visible-buffers-mode)
+    (define-key elpy-mode-map (kbd "M-.") 'elpy-goto-definition-other-window)
+    (define-key elpy-mode-map (kbd "C-c M-.") 'elpy-goto-definition))
 (add-hook 'elpy-mode-hook 'my-elpy-mode-hook)
 
 ;; ;; autopep8 on save
