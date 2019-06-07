@@ -15,16 +15,19 @@
  '(c-basic-offset 4)
  '(c-default-style "linux")
  '(column-number-mode t)
- '(default-fill-column 80)
+ '(default-fill-column 80 t)
+ '(focus-follows-mouse t)
  '(frame-background-mode (quote dark))
  '(global-linum-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(large-file-warning-threshold nil)
+ '(mouse-autoselect-window t)
     '(package-selected-packages
          (quote
-             (idle-highlight-in-visible-buffers-mode color-theme-modern markdown-mode lua-mode slime yaml-mode editorconfig form-feed autopair elpy company-quickhelp flycheck py-autopep8)))
- '(tab-width 4))
+             (idle-highlight-in-visible-buffers-mode color-theme-modern markdown-mode lua-mode slime yaml-mode editorconfig form-feed autopair elpy company-quickhelp flycheck py-autopep8)) t)
+ '(tab-width 4)
+ '(xterm-mouse-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -89,9 +92,10 @@
 (defun my-elpy-mode-hook ()
     "Personal elpy hook logic"
     (interactive)
-    (set-fill-column 120)
+    ;; (set-fill-column 120)
     ;; (idle-highlight-in-visible-buffers-mode)
     (define-key elpy-mode-map (kbd "M-.") 'elpy-goto-definition-other-window)
+    (define-key elpy-mode-map (kbd "M-f") 'elpy-autopep8-fix-code)
     (define-key elpy-mode-map (kbd "C-c M-.") 'elpy-goto-definition))
 (add-hook 'elpy-mode-hook 'my-elpy-mode-hook)
 
