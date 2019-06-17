@@ -70,6 +70,10 @@
 (global-set-key (kbd "C-x <C-left>") 'previous-multiframe-window)
 (global-set-key (kbd "C-x <C-right>") 'next-multiframe-window)
 (global-set-key (kbd "C-n") 'isearch-forward-symbol-at-point)
+(global-set-key (kbd "M-r") 'replace-string)
+(global-set-key (kbd "M-R") 'query-replace)
+(global-set-key (kbd "C-c M-r") 'replace-regexp)
+(global-set-key (kbd "C-c M-R") 'query-replace-regexp)
 
 (require 'clone-line)
 (global-set-key (kbd "M-:") (lambda () (interactive) (clone-line t)))
