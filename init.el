@@ -77,6 +77,12 @@
 
 (require 'clone-line)
 (global-set-key (kbd "M-:") (lambda () (interactive) (clone-line t)))
+
+;; colorize compilation buffers
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+    (ansi-color-apply-on-region compilation-filter-start (point)))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 ;; }}}
 
 ;;; Major mode config
@@ -100,7 +106,8 @@
     ;; (idle-highlight-in-visible-buffers-mode)
     (define-key elpy-mode-map (kbd "M-.") 'elpy-goto-definition-other-window)
     (define-key elpy-mode-map (kbd "M-f") 'elpy-autopep8-fix-code)
-    (define-key elpy-mode-map (kbd "C-c M-.") 'elpy-goto-definition))
+    (define-key elpy-mode-map (kbd "C-c M-.") 'elpy-goto-definition)
+    (elpy-set-test-runner 'elpy-test-nose-runner))
 (add-hook 'elpy-mode-hook 'my-elpy-mode-hook)
 
 ;; ;; autopep8 on save
