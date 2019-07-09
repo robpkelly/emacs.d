@@ -14,6 +14,7 @@
  '(browse-url-generic-program "firefox")
  '(c-basic-offset 4)
  '(c-default-style "linux")
+ '(org-hide-emphasis-markers t)
  '(column-number-mode t)
  '(default-fill-column 80 t)
  '(focus-follows-mouse t)
