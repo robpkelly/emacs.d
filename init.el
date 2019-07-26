@@ -24,6 +24,7 @@
  '(large-file-warning-threshold nil)
  '(mouse-autoselect-window t)
  '(org-hide-emphasis-markers t)
+ '(elpy-rpc-ignored-buffer-size 409600)
     '(package-selected-packages
          (quote
              (gitignore-mode fish-mode json-mode vue-mode idle-highlight-in-visible-buffers-mode color-theme-modern markdown-mode lua-mode slime yaml-mode editorconfig form-feed autopair elpy company-quickhelp flycheck py-autopep8)))
@@ -103,8 +104,6 @@
 (defun my-elpy-mode-hook ()
     "Personal elpy hook logic"
     (interactive)
-    ;; (set-fill-column 120)
-    ;; (idle-highlight-in-visible-buffers-mode)
     (define-key elpy-mode-map (kbd "M-.") 'elpy-goto-definition-other-window)
     (define-key elpy-mode-map (kbd "M-f") 'elpy-autopep8-fix-code)
     (define-key elpy-mode-map (kbd "C-c M-.") 'elpy-goto-definition)
