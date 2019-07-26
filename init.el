@@ -25,6 +25,7 @@
  '(mouse-autoselect-window t)
  '(org-hide-emphasis-markers t)
  '(elpy-rpc-ignored-buffer-size 409600)
+ '(elpy-rpc-timeout 5)
     '(package-selected-packages
          (quote
              (gitignore-mode fish-mode json-mode vue-mode idle-highlight-in-visible-buffers-mode color-theme-modern markdown-mode lua-mode slime yaml-mode editorconfig form-feed autopair elpy company-quickhelp flycheck py-autopep8)))
