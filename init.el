@@ -14,7 +14,6 @@
  '(browse-url-generic-program "firefox")
  '(c-basic-offset 4)
  '(c-default-style "linux")
- '(org-hide-emphasis-markers t)
  '(column-number-mode t)
  '(default-fill-column 80 t)
  '(focus-follows-mouse t)
@@ -24,6 +23,7 @@
  '(inhibit-startup-screen t)
  '(large-file-warning-threshold nil)
  '(mouse-autoselect-window t)
+ '(org-hide-emphasis-markers t)
     '(package-selected-packages
          (quote
              (idle-highlight-in-visible-buffers-mode color-theme-modern markdown-mode lua-mode slime yaml-mode editorconfig form-feed autopair elpy company-quickhelp flycheck py-autopep8)) t)
