@@ -26,7 +26,7 @@
  '(org-hide-emphasis-markers t)
     '(package-selected-packages
          (quote
-             (idle-highlight-in-visible-buffers-mode color-theme-modern markdown-mode lua-mode slime yaml-mode editorconfig form-feed autopair elpy company-quickhelp flycheck py-autopep8)) t)
+             (gitignore-mode fish-mode json-mode vue-mode idle-highlight-in-visible-buffers-mode color-theme-modern markdown-mode lua-mode slime yaml-mode editorconfig form-feed autopair elpy company-quickhelp flycheck py-autopep8)))
  '(tab-width 4)
  '(xterm-mouse-mode t))
 (custom-set-faces
@@ -114,6 +114,14 @@
 ;; ;; autopep8 on save
 ;; (require 'py-autopep8)
 ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+;; Javascript
+(add-hook 'js-mode-hook
+    (lambda ()
+        (setq indent-tabs-mode nil
+            js-indent-level 2)
+        ))
+
 ;; }}}
 
 ;;; minor mode config
