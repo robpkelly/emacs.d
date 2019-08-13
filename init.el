@@ -102,11 +102,28 @@
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
     (add-hook 'elpy-mode-hook 'flycheck-mode))
 
+(defun elpy-autoflake-fix-code()
+    "Use autoflake to remove unused imports and variables"
+    (interactive)
+    (if (executable-find "autoflake")
+        (progn
+            (shell-command (format "autoflake --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables -i %s"
+                               (shell-quote-argument (buffer-file-name))))
+            (revert-buffer t t t))
+        (message "Error: Cannot find autoflake executable")))
+
+(defun elpy-seriously-fix-code()
+    "Shortcut to run both autopep8 and autoflake on the current buffer"
+    (interactive)
+    (elpy-autoflake-fix-code)
+    (elpy-autopep8-fix-code))
+
 (defun my-elpy-mode-hook ()
     "Personal elpy hook logic"
     (interactive)
     (define-key elpy-mode-map (kbd "M-.") 'elpy-goto-definition-other-window)
     (define-key elpy-mode-map (kbd "M-f") 'elpy-autopep8-fix-code)
+    (define-key elpy-mode-map (kbd "M-F") 'elpy-seriously-fix-code)
     (define-key elpy-mode-map (kbd "C-c M-.") 'elpy-goto-definition)
     (elpy-set-test-runner 'elpy-test-nose-runner))
 (add-hook 'elpy-mode-hook 'my-elpy-mode-hook)
